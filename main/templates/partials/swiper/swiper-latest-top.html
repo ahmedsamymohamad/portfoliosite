@@ -1,0 +1,25 @@
+{% block latest_top %}
+<div class="swiper-container swiper-linked-top">
+  <div class="swiper-wrapper">
+    {% comment %} {{#if (config work)}} {{#each work.entries}}{% endcomment %}
+    {% for portf in portfolios %}
+    <div class="swiper-slide cursor-pointer">
+      <a
+        class="link-cover"
+        href="{% url 'main:portfolio-detail' slug=portf.slug %}"
+      >
+        <picture>
+          <img
+            class="img-fluid"
+            src="{{portf.image.url}}"
+            alt="{{ config.defaultImgAlt }}"
+          />
+        </picture>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="swiper-prev swiper-btn"><i class="ri-arrow-left-line"></i></div>
+<div class="swiper-next swiper-btn"><i class="ri-arrow-right-line"></i></div>
+{% endblock latest_top %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}{% load static %}
+
+<!-- title-->
+{% block title %}{{title}}home{% endblock %} {% block content %}
+<!-- Main Section-->
+<section class="py-3 {{ config.classes.content }}">
+  <!-- Page Content Goes Here -->
+
+  <div class="container" data-scroll-section>
+    <!-- Hero-->
+    {% include 'partials/widgets/hero.html' %}
+    <!-- /Hero-->
+
+    <!-- Latest Projects Slideshow Top-->
+    <div>
+      {% include 'partials/content/subtitle.html' %}
+      <div class="position-relative">
+        {% include 'partials/swiper/swiper-latest-top.html' %}
+      </div>
+    </div>
+    <!-- / Latest Projects Slideshow Top-->
+
+    <!-- Latest Projects Slideshow Bottom-->
+    <div class="mt-3 mb-5">
+      {% include 'partials/swiper/swiper-latest-bottom.html' %}
+    </div>
+    <!-- / Latest Projects Slideshow Bottom-->
+    <!-- Experience-->
+    {% include 'partials/widgets/experience.html' %}
+    <!-- / Experience-->
+  </div>
+
+  <!-- Testimonials-->
+  {% include 'partials/widgets/testimonials.html' %}
+  <!-- / Testimonials-->
+
+  <!-- /Page Content -->
+</section>
+<!-- / Main Section-->
+{% endblock content %}

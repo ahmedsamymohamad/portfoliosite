@@ -1,0 +1,28 @@
+{% block experience_temp %}
+<div class="py-lg-6" data-scroll>
+  {% include 'partials/content/subtitle.html' %} {% comment %} {{#if (config
+  experience)}} {{#each experience.entries}} {% endcomment %}
+  <!-- Single Experience-->
+
+  {% for exper in experience %}
+  <div
+    class="row gx-2 mb-5 fade-in-up"
+    data-scroll
+    data-scroll-position="bottom"
+  >
+    <div class="col-12 col-lg-4">
+      <p class="fw-bolder mb-1">{{exper.company}}</p>
+      <span class="text-muted small">( {{exper.years}} )</span>
+    </div>
+    <div class="col-12 col-lg-8">
+      <p class="fw-bolder">title</p>
+      <p class="text-muted fw-light fs-6">{{exper.description}}</p>
+      <a class="link-body" href="{{exper.url}}"> view </a>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- / Single Experience -->
+  {% comment %} {{/each}} {{/if}} {% endcomment %}
+</div>
+{% endblock experience_temp %}

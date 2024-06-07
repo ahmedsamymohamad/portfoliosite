@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+<!-- title-->
+{% block title %}{{title}}{{" | "| escape}}{% endblock %} {% block content %}
+<!-- Main Section-->
+<section
+  class="container py-3 {{ config.classes.content }}"
+  data-scroll-section
+>
+  <!-- Page Content Goes Here -->
+
+  <h1
+    class="display-3 mb-5"
+    data-scroll
+    data-scroll-speed="6"
+    data-scroll-position="top"
+  >
+    My Work
+  </h1>
+
+  <div class="row g-8" data-scroll data-scroll-position="bottom">
+    <!-- Single Work-->
+
+    {% for portfolio in portfolios %}
+    <div
+      data-scroll
+      data-scroll-position="bottom"
+      class="col-12 col-md-6 fade-in-left"
+      class="col-12 col-md-6 fade-in-right"
+    >
+      <div class="position-relative">
+        <a
+          class="link-cover"
+          href="{% url 'main:portfolio-detail' slug=portfolio.slug %}"
+        >
+          <picture>
+            <img
+              class="img-fluid"
+              src="{{ portfolio.image.url }}"
+              alt="{{ config.defaultImgAlt }}"
+            />
+          </picture>
+        </a>
+        <p class="subtitle-xs mb-0 mt-4">{{portfolio.category}}</p>
+        <p class="fw-bolder lead mb-3 mt-2">{{portfolio.name}}</p>
+        <p class="small text-muted mb-2">{{portfolio.description}}</p>
+        <a
+          class="link-body"
+          href="{% url 'main:portfolio-detail' slug=portfolio.slug %}"
+          >View Project</a
+        >
+      </div>
+    </div>
+    {% endfor %}
+
+    <!-- / Single Work -->
+  </div>
+
+  <!-- /Page Content -->
+</section>
+<!-- / Main Section-->
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+<!-- Skills Section-->
+<div class="pt-2 pb-6 skills" data-scroll>
+  {% include 'partials/content/subtitle.html' %}
+  <div class="row gx-10 gy-5">
+    <!-- Single Skill-->
+    <div
+      class="col-12 col-lg-6 fade-in-up"
+      data-scroll
+      data-scroll-position="bottom"
+    >
+      {% for skill in skills %}
+      <div class="row align-items-center">
+        <div class="col-12 d-flex justify-content-end">
+          <p class="mb-0 fw-bolder">{{ skill.score }}%</p>
+        </div>
+        <div class="col-4">
+          <p class="mb-0 small lh-1">{{ skill }}</p>
+        </div>
+        <div class="col-8">
+          <div class="progress f-h-1">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: {{ skill.score }}%"
+              aria-valuenow="{{ skill.score }}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- / Single Skill -->
+  </div>
+</div>
+<!-- /Skills Section-->

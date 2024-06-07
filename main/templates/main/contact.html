@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %}
+  {{ title }}contact
+{% endblock %} {% block content %}
+  <!-- Main Section -->
+
+  <section class="container py-3 {{ config.classes.content }}" data-scroll-section>
+    {% if message %}
+      <h2 class="display-3 col-xxl-8 mb-8">{{ message }}</h2>
+    {% else %}
+      <!-- Page Content Goes Here -->
+
+      <div class="position-relative ps-xl-7">
+        <div class="tracking-wide text-vertical mt-4 small d-none d-xl-block">
+          {% for social in socials %}
+            <a class="text-vertical-link me-3" href="{{ social.link }}">{{ social.name }}</a>
+            &middot;
+          {% endfor %}
+        </div>
+
+        <h1 class="display-3 col-xxl-8 mb-8">Let's work together on your next project</h1>
+
+        <h4 class="subtitle-sm mb-3">Email me</h4>
+        <a class="link-body" href="">{{ me.email }}</a>
+
+        <h4 class="subtitle-sm mt-8 mb-4">Send Me A Message</h4>
+
+        <!-- Contact Form -->
+        <form method="post">
+          {% csrf_token %}
+          <div class="row g-5">
+            <div class="col-12 col-xl-7">
+              <div class="row g-5">
+                <!-- Name -->
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Your Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="John Doe" />
+                </div>
+                <!-- / Name -->
+
+                <!-- Email -->
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Your Email Adress</label>
+                  <input type="email" class="form-control" name="email" placeholder="john@doe.com" />
+                </div>
+                <!-- / Email -->
+
+                <!-- Project Information -->
+                <div class="col-12">
+                  <label class="form-label">Tell Me About Your Project</label>
+                  <textarea name="message" class="form-control" cols="30" rows="12" placeholder="Hi Jenny, I would like to talk about the design and build of a custom Ecommerce platform that uses the Shopify API and React.js frontend..."></textarea>
+                </div>
+                <!-- / Project Information -->
+
+                <!-- Submit btn -->
+                <div class="col-12 justify-content-end d-flex">
+                  <button class="btn btn-primary" type="submit">Send Message</button>
+                </div>
+                <!-- / Submit Btn -->
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- / Contact Form -->
+      </div>
+
+      <!-- /Page Content -->
+    {% endif %}
+  </section>
+  <!-- / Main Section -->
+{% endblock %}

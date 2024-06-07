@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+<!-- title-->
+{% block title %}{{title}}about{% endblock %} {% block content %}
+
+<!-- Main Section-->
+<section
+  class="container py-3 {{ config.classes.content }}"
+  data-scroll-section
+>
+  <!-- Page Content Goes Here -->
+
+  <h1
+    class="display-3 mb-5"
+    data-scroll
+    data-scroll-speed="6"
+    data-scroll-position="top"
+  >
+    About Me
+  </h1>
+
+  <div class="row g-8">
+    <!-- Profile Image-->
+    <div
+      class="col-12 col-md-5"
+      data-scroll
+      data-scroll-speed="6"
+      data-scroll-position="top"
+    >
+      <picture>
+        <img
+          class="img-fluid"
+          src="{{me.userprofile.avatar.url}}"
+          alt="{{ config.defaultImgAlt }}"
+        />
+      </picture>
+    </div>
+    <!-- / Profile Image-->
+
+    <!-- / Bio & CV Link-->
+    <div class="col-12 col-md-7">
+      <div class="row g-5 g-xl-8">
+        <div
+          class="col-12 col-xl-7"
+          data-scroll
+          data-scroll-speed="4"
+          data-scroll-position="top"
+        >
+          {{me.userprofile.user}}
+          <p class="lead">{{me.userprofile.bio}}</p>
+        </div>
+        <div
+          class="col-12 col-xl-5"
+          data-scroll
+          data-scroll-speed="2"
+          data-scroll-position="top"
+        >
+          <a
+            href="#"
+            class="btn btn-dark w-100 d-flex align-items-center justify-content-center"
+            ><i class="ri-file-download-line ri-lg me-2"></i> Download My CV</a
+          >
+          <h5 class="fw-medium mt-6 mb-3">Find Me Online</h5>
+          <ul class="list-unstyled">
+            {% for social in socials %}
+            <li class="d-flex align-items-center mb-2">
+              <i class="ri-{{social.name}}-line me-3 ri-lg"></i>
+              <a class="link-body" href="{{social.link}}">{{social.name}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- / Bio & CV Link-->
+  </div>
+
+  <!-- Experience-->
+  {% include 'partials/widgets/experience.html' %}
+
+  <!-- / Experience-->
+
+  <!-- / Skills-->
+  {% include 'partials/widgets/skills.html' %}
+  <!-- / Skills-->
+
+  <!-- /Page Content -->
+</section>
+<!-- / Main Section-->
+{% endblock content %}

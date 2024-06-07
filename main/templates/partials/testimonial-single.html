@@ -1,0 +1,20 @@
+{% block testimonial-single %} {% for testimonial in testimonials %}
+<div class="card card-testimonial">
+  <div class="card-body">
+    <p class="mb-1">"{{ testimonial.quote }}"</p>
+    <div class="d-flex align-items-center mt-4">
+      <picture class="avatar me-3">
+        <img
+          class="img-fluid rounded-circle"
+          src="{{ me.testimonials.thumbnail.url }}"
+          alt="{{ config.defaultImgAlt }}"
+        />
+      </picture>
+      <div>
+        <p class="small fw-bolder mb-2 lh-1">{{ testimonial.name }}</p>
+        <p class="small text-muted m-0 lh-1">{{ testimonial.role }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock testimonial-single %}

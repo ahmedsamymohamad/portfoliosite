@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+<!-- title-->
+{% block title %}profile{% endblock %} {% block content %}
+<!-- Main Section-->
+<section class="py-3 {{ config.classes.content }}" data-scroll-section>
+  <!-- Page Content Goes Here -->
+
+  <!-- Portfolio Title-->
+  <div class="container">
+    <h1
+      class="display-3 mb-2"
+      data-scroll
+      data-scroll-speed="2"
+      data-scroll-position="top"
+    >
+      {{portfolio.name}}
+    </h1>
+    <p
+      class="subtitle-xs"
+      data-scroll
+      data-scroll-speed="4"
+      data-scroll-position="top"
+    >
+      <span class="me-2">{{portfolio.category}}</span>
+    </p>
+    <p
+      class="lead"
+      data-scroll
+      data-scroll-speed="6"
+      data-scroll-position="top"
+    >
+      {{portfolio.description}}
+    </p>
+  </div>
+  <!-- Portfolio Title-->
+
+  <!-- Main Portfolio Image-->
+  <div
+    class="my-9 bg-img-cover fade-in-up"
+    data-scroll
+    data-scroll-position="top"
+    style="background-image: url({{portfolio.image.url}})"
+  ></div>
+  <!-- / Main Portfolio Image-->
+
+  <!-- Project Summary-->
+  <div class="container">
+    <div class="row gx-8 gy-5">
+      <div
+        class="col-12 col-lg-4 fade-in-left"
+        data-scroll
+        data-scroll-position="bottom"
+      >
+        <p class="m-0 subtitle-sm">What I Delivered</p>
+      </div>
+      <div
+        class="col-12 col-lg-8 fade-in-right"
+        data-scroll
+        data-scroll-position="bottom"
+      >
+        {{portfolio.description}}
+      </div>
+      <div
+        class="col-12 col-lg-4 fade-in-left"
+        data-scroll
+        data-scroll-position="bottom"
+      >
+        <p class="m-0 subtitle-sm">My Services</p>
+      </div>
+      <div
+        class="col-12 col-lg-8 fade-in-right"
+        data-scroll
+        data-scroll-position="bottom"
+      >
+        <ul>
+          {% for service in services %}
+          <li class="mb-2">{{service}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Project Summary-->
+
+  <!-- Client Testimonial-->
+  <div class="container py-10">
+    {% for testimonial in testimonials %}
+    <div class="row gx-8 align-items-center">
+      <div
+        class="col-12 col-md-6 fade-in-left"
+        data-scroll
+        data-scroll-position="bottom"
+      >
+        <span class="d-block text-primary lh-1 display-1 mb-5 mb-md-3 mb-lg-0"
+          >"</span
+        >
+        <p class="fs-4 mt-n6 mb-5">{{testimonial.quote}}</p>
+        <p class="lead fw-bolder mb-1">{{testimonial.name}}</p>
+        <p class="text-muted">{{testimonial.role}}</p>
+      </div>
+      <div
+        class="col-12 col-md-6 fade-in-right"
+        data-scroll
+        data-scroll-position="bottom"
+      >
+        <picture>
+          <img
+            class="img-fluid"
+            src="{{testimonial.thumbnail}}"
+            alt="{{ config.defaultImgAlt }}"
+          />
+        </picture>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- Client Testimonial-->
+
+  <!-- /Page Content -->
+</section>
+<!-- / Main Section-->
+{% endblock content %}
