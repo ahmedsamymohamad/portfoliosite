@@ -27,9 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v8bzoj5)*&_%x-yy7o*z-2$*m1uuo*hbtb(n)%@bboej@%wkox'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =  os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['portfoliosite-wpp3.onrender.com']
+if DEBUG:
+    ALLOWED_HOSTS = ['127.0.0.1']
+else:
+    ALLOWED_HOSTS = ['portfoliosite-wpp3.onrender.com']
 
 
 # Application definition
@@ -86,8 +89,12 @@ WSGI_APPLICATION = 'portfolio_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 

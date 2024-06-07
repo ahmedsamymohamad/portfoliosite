@@ -16,11 +16,13 @@
         data-scroll-direction="horizontal"
         data-scroll-position="top"
       >
+       {% if me.userprofile.avatar.url %}
         <img
           class="img-fluid rounded-circle"
           src="{{ me.userprofile.avatar.url }}"
           alt="{{ config.defaultImgAlt }}"
         />
+        {% endif %}  
       </picture>
       <span
         class="fw-bolder fs-6 d-flex justify-content-start"
