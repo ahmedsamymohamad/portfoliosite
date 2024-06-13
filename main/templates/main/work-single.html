@@ -16,6 +16,7 @@
     >
       {{portfolio.name}}
     </h1>
+    {%if portfolio.category%}
     <p
       class="subtitle-xs"
       data-scroll
@@ -24,6 +25,8 @@
     >
       <span class="me-2">{{portfolio.category}}</span>
     </p>
+    {%endif%}
+    {% if portfolio.description %}
     <p
       class="lead"
       data-scroll
@@ -32,6 +35,7 @@
     >
       {{portfolio.description}}
     </p>
+    {%endif%}
   </div>
   <!-- Portfolio Title-->
 
@@ -59,7 +63,10 @@
         data-scroll
         data-scroll-position="bottom"
       >
+      {% if portfolio.description %}
         {{portfolio.description}}
+      {%endif%}
+        {{portfolio.body|safe}}
       </div>
       <div
         class="col-12 col-lg-4 fade-in-left"

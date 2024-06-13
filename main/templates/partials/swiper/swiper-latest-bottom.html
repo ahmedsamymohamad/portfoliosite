@@ -23,19 +23,15 @@
 
         <!-- Slide Text-->
 
-        <div class="col-12 col-md-6">
-          <p
-            class="subtitle-xs mb-0 mt-4 mt-md-0"
-            data-swiper-parallax-x="-100"
-          >
-            {{port.category}}
-          </p>
+          {% if port.category %}
+            <p class="subtitle-xs mb-0 mt-4 mt-md-0">{{port.category}}</p>
+          {% endif %} 
           <p class="fw-bolder lead mb-3 mt-2" data-swiper-parallax-x="-150">
             {{port.name}}
           </p>
-          <p class="small text-muted mb-2" data-swiper-parallax-x="-200">
-            {{port.description}}
-          </p>
+          {% if port.description %}
+            <p class="small text-muted mb-2">{{port.description}}</p>
+          {% endif %} 
           <div class="mt-3" data-swiper-parallax-y="-15">
             <a
               class="link-body"
