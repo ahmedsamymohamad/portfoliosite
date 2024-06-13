@@ -89,7 +89,16 @@
     </div>
   </div>
   <!-- Project Summary-->
-
+  <div class="container py-10">
+    <li class="d-flex align-items-center mb-2">
+      
+      <a class="link-body" href="{{portfolio.git_hub}}">
+        <i class="ri-github-line me-3 ri-lg">github:</i>{{portfolio.git_hub}}</a>
+    </li>
+    <li class="d-flex align-items-center mb-2">
+      <a class="link-body" href="{{portfolio.project_link}}">project link: {{portfolio.project_link}}</a>
+    </li>
+  </div>
   <!-- Client Testimonial-->
   <div class="container py-10">
     {% for testimonial in testimonials %}
