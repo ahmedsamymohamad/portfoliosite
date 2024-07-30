@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     '*.vercel.app',
     'portfoliosite-3pd47d5ec-ahmed-samys-projects-753187b5.vercel.app'
 ]
-
+print(f"ALLOWED_HOSTS {ALLOWED_HOSTS}")
 
 
 # Application definition
