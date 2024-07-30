@@ -1,4 +1,5 @@
 {
+    "version":2,
     "builds": [{
         "src": "portfolio_app/wsgi.py",
         "use": "@vercel/python",
