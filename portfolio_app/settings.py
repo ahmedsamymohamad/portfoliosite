@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-v8bzoj5)*&_%x-yy7o*z-2$*m1uuo*hbtb(n)%@bboej@%wkox
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '*.vercel.app',
-    'portfoliosite-3pd47d5ec-ahmed-samys-projects-753187b5.vercel.app'
+    'portfoliosite-nu-six.vercel.app'
 ]
 
 print(f"ALLOWED_HOSTS {ALLOWED_HOSTS}")
