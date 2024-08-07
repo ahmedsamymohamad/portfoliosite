@@ -19,7 +19,7 @@
     About Me
   </h1>
 
-  <div class="row g-8">
+  <div class="row g-2">
     <!-- Profile Image-->
     <div
       class="col-12 col-md-5"
@@ -39,21 +39,15 @@
 
     <!-- / Bio & CV Link-->
     <div class="col-12 col-md-7">
-      <div class="row g-5 g-xl-8">
+      <div class="row g-2 g-xl-8">
         <div
-          class="col-12 col-xl-7"
-          data-scroll
-          data-scroll-speed="4"
-          data-scroll-position="top"
+
         >
           {{me.userprofile.user}}
           <p class="lead">{{me.userprofile.bio|safe}}</p>
         </div>
         <div
-          class="col-12 col-xl-5"
-          data-scroll
-          data-scroll-speed="2"
-          data-scroll-position="top"
+
         >
           <a
             href="#"
@@ -76,9 +70,9 @@
   </div>
 
   <!-- Experience-->
-  {% include 'partials/widgets/experience.html' %}
+  {% comment %} {% include 'partials/widgets/experience.html' %} {% endcomment %} 
 
-  <!-- / Experience-->
+  <!-- / Experience -->
 
   <!-- / Skills-->
   {% include 'partials/widgets/skills.html' %}

@@ -32,6 +32,7 @@ class IndexView(generic.TemplateView):
         context["experience"] = Experience.objects.all()
         context["skills"] = Skill.objects.all()
         context['user_profile'] =  UserProfile.objects.filter(user__is_active=True)
+        context['socials'] = Social.objects.all()
 
         return context
 class ContactView(generic.FormView):
@@ -73,6 +74,11 @@ class PortfolioView(generic.ListView):
     def get_queryset(self):
         return super().get_queryset().filter(is_active=True)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['socials'] = Social.objects.all()
+        return context
+
 
 class PortfolioDetailView(generic.DetailView):
     model = Portfolio
@@ -83,7 +89,7 @@ class PortfolioDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['services'] = Service.objects.all()
         context['testimonials'] = Testimonial.objects.all()
-
+        context['socials'] = Social.objects.all()
         return context
 
 class AboutView(generic.ListView):

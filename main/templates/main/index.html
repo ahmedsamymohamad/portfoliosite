@@ -1,7 +1,8 @@
 {% extends 'base.html' %}{% load static %}
 
 <!-- title-->
-{% block title %}{{title}}home{% endblock %} {% block content %}
+{% block title %}{{title}}home{% endblock title %} 
+{% block content %}
 <!-- Main Section-->
 <section class="py-3 {{ config.classes.content }}">
   <!-- Page Content Goes Here -->
@@ -20,19 +21,20 @@
     </div>
     <!-- / Latest Projects Slideshow Top-->
 
-    <!-- Latest Projects Slideshow Bottom-->
-    <div class="mt-3 mb-5">
-      {% include 'partials/swiper/swiper-latest-bottom.html' %}
-    </div>
-    <!-- / Latest Projects Slideshow Bottom-->
-    <!-- Experience-->
-    {% include 'partials/widgets/experience.html' %}
-    <!-- / Experience-->
+    <a 
+    class="link-body"
+    href="{% url 'main:portfolio'%}"
+    >View My Work</a
+  >
+
+
+  <!-- Experience-->
+  {% comment %} {% include 'partials/widgets/experience.html' %} {% endcomment %} 
+
+  <!-- / Experience -->
   </div>
 
-  <!-- Testimonials-->
-  {% include 'partials/widgets/testimonials.html' %}
-  <!-- / Testimonials-->
+
 
   <!-- /Page Content -->
 </section>
